@@ -1,0 +1,441 @@
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+/* Define Brand Colors */
+:root {
+    --deep-sapphire: #07334F;
+    --golden-marigold: #F9D62E;
+    --azure-wave: #1192D0;
+    --light-gray: #f8f9fa; /* Bootstrap light gray */
+    --white: #ffffff;
+    --dark-text: #343a40; /* Bootstrap dark text */
+    --bs-primary-rgb: 17, 146, 208; /* Corresponds to --azure-wave for Bootstrap components */
+    --bs-warning-rgb: 249, 214, 46; /* Corresponds to --golden-marigold */
+}
+
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-text);
+    padding-top: 65px; /* Adjust based on final navbar height */
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Bold weight for headings */
+    color: var(--deep-sapphire);
+}
+
+p {
+    font-weight: 400; /* Regular weight for paragraphs */
+    margin-bottom: 1rem;
+}
+
+.lead {
+     font-weight: 300; /* Light weight for lead paragraphs */
+}
+
+a {
+    color: var(--azure-wave);
+    text-decoration: none;
+}
+a:hover {
+     color: #0d7ab5; /* Darker Azure */
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: var(--deep-sapphire);
+    position: relative;
+    padding-bottom: 0.75rem;
+    display: inline-block; /* Needed for centering line correctly */
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--golden-marigold);
+    border-radius: 2px;
+}
+/* Adjust alignment for left-aligned titles within columns */
+.text-lg-start .section-title::after,
+.text-md-start .section-title::after,
+.text-start .section-title::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+
+.section-title-light {
+     color: var(--white);
+}
+.section-title-light::after {
+    background-color: var(--golden-marigold);
+}
+
+/* Background Colors */
+.bg-deep-sapphire {
+    background-color: var(--deep-sapphire) !important;
+}
+
+/* Buttons */
+.btn {
+    font-weight: 700;
+    padding: 10px 25px;
+    border-radius: 50px; /* Pill shape */
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--azure-wave);
+    border-color: var(--azure-wave);
+    color: var(--white);
+}
+.btn-primary:hover {
+    background-color: #0d7ab5;
+    border-color: #0d7ab5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-outline-primary {
+    border-color: var(--azure-wave);
+    color: var(--azure-wave);
+}
+.btn-outline-primary:hover {
+    background-color: var(--azure-wave);
+    color: var(--white);
+     transform: translateY(-2px);
+}
+
+.btn-warning {
+    background-color: var(--golden-marigold);
+    border-color: var(--golden-marigold);
+    color: var(--deep-sapphire);
+}
+.btn-warning:hover {
+    background-color: #e9c424;
+    border-color: #e9c424;
+    color: var(--deep-sapphire);
+    transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-outline-light {
+     border-color: var(--white);
+     color: var(--white);
+}
+.btn-outline-light:hover {
+     background-color: var(--white);
+     color: var(--deep-sapphire);
+     transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Default Bootstrap secondary */
+    border-color: #6c757d;
+    color: var(--white);
+}
+.btn-secondary:hover {
+     background-color: #5a6268;
+     border-color: #545b62;
+     transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+.btn-outline-secondary:hover {
+     background-color: #6c757d;
+     color: var(--white);
+     transform: translateY(-2px);
+}
+
+
+.btn-lg {
+    padding: 12px 35px;
+    font-size: 1.1rem;
+}
+.btn-sm {
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    font-weight: 400; /* Lighter weight for small utility buttons */
+     border-radius: 4px; /* Less rounded for small buttons */
+}
+
+
+/* Navigation Bar */
+.navbar {
+    background-color: var(--deep-sapphire);
+    transition: background-color 0.3s ease;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar-brand img {
+    max-height: 40px; /* Slightly smaller */
+}
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.8); /* Slightly muted white */
+    font-weight: 400;
+    margin-left: 0.5rem; /* Reduced spacing */
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    transition: color 0.3s ease;
+    border-radius: 4px;
+}
+.navbar .nav-link:hover {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover background */
+}
+.navbar .nav-link.active {
+    color: var(--golden-marigold);
+    font-weight: 700;
+    background-color: transparent; /* Remove hover background if active */
+}
+.navbar .btn-sm {
+    padding: 5px 15px; /* Smaller button in navbar */
+    margin-left: 0.5rem;
+}
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+.navbar-toggler-icon {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh; /* Slightly less tall */
+    background: linear-gradient(rgba(7, 51, 79, 0.75), rgba(7, 51, 79, 0.75)), url('../images/hero-background.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative; /* For potential overlays or shapes */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+}
+.hero-section h1 {
+     color: var(--white);
+     margin-bottom: 0.5rem;
+     font-size: calc(1.8rem + 2.5vw); /* Responsive font size */
+}
+.hero-section .tagline {
+     color: rgba(255, 255, 255, 0.9);
+     font-size: calc(1.1rem + 0.5vw); /* Responsive font size */
+     font-weight: 300;
+     margin-bottom: 2rem;
+}
+.hero-section .tagline .accent-wave {
+    color: var(--azure-wave);
+    font-weight: 700;
+}
+
+/* Page Header (for non-home pages) */
+.page-header {
+    background-color: var(--light-gray);
+    border-bottom: 1px solid #dee2e6;
+}
+.page-header h1 {
+    color: var(--deep-sapphire);
+}
+.page-header .lead {
+    color: #6c757d; /* Bootstrap muted color */
+}
+
+/* Values Section */
+.value-card {
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.value-card:hover {
+     transform: translateY(-5px);
+}
+.value-icon {
+    max-height: 50px; /* Slightly smaller icon */
+    margin-bottom: 1rem;
+    color: var(--azure-wave); /* Make icons use color */
+}
+.value-card h4 {
+    color: var(--deep-sapphire);
+    margin-bottom: 0.5rem;
+}
+
+/* Programs Section */
+.program-card {
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden; /* Ensure image corners are rounded */
+}
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+.program-card .card-img-top {
+    height: 200px;
+    object-fit: cover; /* Ensure image covers space well */
+}
+.program-card .card-body {
+    padding: 1.25rem;
+}
+.program-card .card-title {
+    color: var(--deep-sapphire);
+    margin-bottom: 0.75rem;
+}
+.program-card .card-text {
+    font-size: 0.95rem;
+    color: #555;
+    flex-grow: 1; /* Allows button to stick to bottom */
+}
+.program-card .btn-sm {
+     margin-top: 1rem;
+     align-self: flex-start; /* Align button to start */
+     border-radius: 50px; /* Make small buttons pill-shaped too */
+}
+
+/* Program Detail Page Styles */
+.program-detail .program-title {
+    color: var(--azure-wave);
+}
+.program-detail ul {
+    padding-left: 1.2rem;
+}
+.program-detail ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Events Page Styles */
+.list-group-item.bg-light {
+    background-color: var(--light-gray) !important; /* Override Bootstrap */
+    border-color: #e9ecef;
+    padding: 0.75rem 1.25rem;
+}
+
+/* Contact Page Styles */
+.contact-item i {
+    width: 30px; /* Ensure icons align */
+    text-align: center;
+}
+.contact-item h5 {
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+}
+.map-responsive {
+    overflow: hidden;
+    position: relative;
+}
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: 0;
+}
+
+
+/* Get Involved Section / CTA */
+#get-involved {
+    background-color: var(--deep-sapphire);
+}
+#get-involved h2 {
+    color: var(--white);
+}
+#get-involved p {
+    color: var(--light-gray);
+}
+
+/* Footer */
+footer {
+    background-color: var(--deep-sapphire);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+footer p, footer a {
+    color: rgba(255, 255, 255, 0.7); /* Muted white */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color: var(--golden-marigold);
+}
+footer .tagline-footer {
+    color: var(--azure-wave);
+    font-size: 0.8rem;
+    font-weight: 300;
+    opacity: 0.8;
+    margin-top: 0.2rem;
+}
+footer img {
+    opacity: 0.9;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 60px; /* Adjust if navbar height changes on mobile */
+    }
+    .navbar-nav {
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+     .navbar .nav-link {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.8rem 1rem; /* More touch-friendly padding */
+    }
+     .navbar .nav-item .btn {
+         margin-top: 1rem;
+         margin-bottom: 0.5rem;
+         display: inline-block; /* Don't take full width */
+         width: auto;
+     }
+     .hero-section {
+         min-height: 65vh;
+     }
+     .hero-section h1 {
+         font-size: calc(1.6rem + 2vw);
+     }
+     .hero-section .tagline {
+         font-size: calc(1rem + 0.4vw);
+     }
+     .section-title {
+         padding-bottom: 0.6rem;
+     }
+      .section-title::after {
+          height: 3px;
+          width: 50px;
+      }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section .btn {
+        display: block; /* Stack buttons */
+        margin-left: auto !important; /* Center stacked buttons */
+        margin-right: auto !important;
+        width: 70%; /* Control width */
+        margin-bottom: 1rem !important;
+    }
+    .hero-section .btn:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    footer .row > div {
+        text-align: center !important; /* Center all footer columns */
+        margin-bottom: 1rem; /* Add space between footer columns */
+    }
+     footer .row > div:last-child {
+         margin-bottom: 0;
+     }
+}
